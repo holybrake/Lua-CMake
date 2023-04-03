@@ -11,8 +11,8 @@ This file may be simply dropped to the empty subdirectory of another
 CMake project and added by add_subdirectory.
 Only Lua runtime will be added to the install.
 
-All the sources are downloaded automatically from the official Lua web site
-using the version set in ``project``
+All the sources are downloaded automatically from the official
+`Lua web site <http://www.lua.org/>`_ using the version set in ``project``
 
 When it is used standalone, this file builds a full Lua distribution.
 However, it may be easily configured to provide only the neccessary parts
@@ -64,12 +64,12 @@ Available Targets
 - Lua::Interpreter
 - Lua::Compiler
 
-** This file doesn't provide the same variables as the standard FindLua **
+**This file doesn't provide the same variables as the standard FindLua**
 
 License
 -------
 
-The project is licensed under the [MIT license][license]
+The project is licensed under the `MIT license <LICENSE>`_
 
 Copyright (c) 2023 Alexander Voronkov
 
