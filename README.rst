@@ -41,6 +41,9 @@ CMake options and variables
 | LUA_BUILD_TESTING     | Enable Lua basic test suite                        |
 |                       | (ON for standalone build)                          |
 +-----------------------+----------------------------------------------------+
+| LUA_VERSION           | The version of Lua to build                        |
+|                       | (The hardcoded value is used by default)           |
++-----------------------+----------------------------------------------------+
 | LUA_TESTSUITE_VERSION | The version of the Lua test suite, determined      |
 |                       | automatically if is not set                        |
 +-----------------------+----------------------------------------------------+

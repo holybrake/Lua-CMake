@@ -44,6 +44,9 @@ CMake options and variables
 | LUA_BUILD_TESTING     | Enable Lua basic test suite                        |
 |                       | (ON for standalone build)                          |
 +-----------------------+----------------------------------------------------+
+| LUA_VERSION           | The version of Lua to build                        |
+|                       | (The hardcoded value is used by default)           |
++-----------------------+----------------------------------------------------+
 | LUA_TESTSUITE_VERSION | The version of the Lua test suite, determined      |
 |                       | automatically if is not set                        |
 +-----------------------+----------------------------------------------------+
@@ -101,7 +104,9 @@ SOFTWARE.
 
 cmake_minimum_required(VERSION 3.21...3.26)
 
-project(lua LANGUAGES C VERSION 5.4.4)
+set(LUA_VERSION 5.4.6 CACHE STRING "The version of Lua to build")
+
+project(lua LANGUAGES C VERSION ${LUA_VERSION})
 include(CTest)
 include(GNUInstallDirs)
 include(CMakeDependentOption)
@@ -267,7 +272,7 @@ if(WIN32)
                 MSVC_DEBUG_INFORMATION_FORMAT $<$<CONFIG:${genex_deb_confs},RelWithDebInfo>:Embedded>)
         endif()
     endif()
-    # Add SourceLink information into PDB if the toolset is enough new
+    # Add SourceLink information into PDB if the toolset is new enough
     if(MSVC_TOOLSET_VERSION GREATER 141 AND LUA_INSTALL_DEBINFO)
         cmake_path(APPEND lua_sources_path "*" OUTPUT_VARIABLE src_pattern)
         string(REPLACE "/" [[\\]] src_pattern ${src_pattern})
