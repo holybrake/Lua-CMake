@@ -31,6 +31,9 @@
 *.out
 *.app
 
+# Python compiled bytecode
+*.pyc
+
 # Downloaded Sources
 /lua-*/
 

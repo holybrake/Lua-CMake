@@ -1,5 +1,6 @@
-# vim:et:ts=4:sw=4:cc=120
-#[======================================================================[.rst:
+# vim:et:ts=4:sw=4:tw=120:cc=+1:fdm=marker:fdn=1:fml=10:fmr=#[===============,===============]
+# _vim: set tw=78 fdl=1: documentation modeline - remove underscore to apply
+#[================================================================[README.rst[
 ~~~~~~~~~~~~~~~~~~~
 Lua-CMake-Autobuild
 ~~~~~~~~~~~~~~~~~~~
@@ -73,8 +74,8 @@ The project is licensed under the `MIT license <LICENSE>`_
 
 Copyright (c) 2023 Alexander Voronkov
 
-#=====]======================================================================]
-#[===========================================================================[
+#]README.rst]================================================================]
+#[===================================================================[LICENSE[
 MIT License
 
 Copyright (c) 2023 Alexander Voronkov
@@ -96,7 +97,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-#]===========================================================================]
+#]LICENSE]===================================================================]
 
 cmake_minimum_required(VERSION 3.21...3.26)
 
