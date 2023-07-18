@@ -282,7 +282,7 @@ if(WIN32)
         cmake_path(NATIVE_PATH sourcelink_path sourcelink_path)
         target_link_options(lua-platform INTERFACE /SOURCELINK:${sourcelink_path})
     endif()
-    if(MSVC AND PROJECT_VERSION MATCHES "^5.4.")
+    if(MSVC AND PROJECT_VERSION MATCHES "^5\\.4\\.")
         if(PROJECT_VERSION_PATCH LESS 2)
             if(CMAKE_SIZEOF_VOID_P EQUAL 8)
                 target_compile_definitions(lua-platform INTERFACE $<$<CONFIG:${genex_deb_confs}>:LUAI_MAXCSTACK=250>)
@@ -516,12 +516,14 @@ endif()
 if(PROJECT_IS_TOP_LEVEL)
     if(LUA_INSTALL_DEBINFO)
         set(CPACK_STRIP_FILES OFF)
-        install(FILES $<$<STREQUAL:$<TARGET_PROPERTY:lua-lib,TYPE>,SHARED_LIBRARY>:$<TARGET_PDB_FILE:lua-lib>>
-            $<$<BOOL:${LUA_BUILD_INTERPRETER}>:$<TARGET_PDB_FILE:lua-lua>>
-            $<$<TARGET_EXISTS:lua-luac>:$<TARGET_PDB_FILE:lua-luac>>
-            DESTINATION ${CMAKE_INSTALL_BINDIR}
-            COMPONENT LuaDev
-            OPTIONAL)
+        if(WIN32)
+            install(FILES $<$<STREQUAL:$<TARGET_PROPERTY:lua-lib,TYPE>,SHARED_LIBRARY>:$<TARGET_PDB_FILE:lua-lib>>
+                $<$<BOOL:${LUA_BUILD_INTERPRETER}>:$<TARGET_PDB_FILE:lua-lua>>
+                $<$<TARGET_EXISTS:lua-luac>:$<TARGET_PDB_FILE:lua-luac>>
+                DESTINATION ${CMAKE_INSTALL_BINDIR}
+                COMPONENT LuaDev
+                OPTIONAL)
+        endif()
     else()
         set(CPACK_STRIP_FILES ON)
     endif()
